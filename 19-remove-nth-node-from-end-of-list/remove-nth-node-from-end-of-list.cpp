@@ -14,12 +14,12 @@ public:
         if(head->next==NULL)return NULL;
         ListNode *ite= head;
         ListNode *it2= head;
-        while(it2!=NULL && n>0){
+        while(n>0){
             n--;
             it2=it2->next;
         }
         if(it2==NULL)return head->next;
-        while(it2!=NULL && it2->next!=NULL){
+        while(it2->next!=NULL){
             ite=ite->next;
             it2=it2->next;
         }
