@@ -10,7 +10,7 @@ public:
         //std::cout<<rows<<column<<start<<mid<<end<<getAtIndex(mid, column, matrix);
 
         while(start<end){
-            int curr= getAtIndex(mid, column, matrix);
+            int curr= matrix[mid/column][mid%column]; //getAtIndex(mid, column, matrix);
             std::cout<<mid;
             if(curr>target){
                 end= mid;
