@@ -11,13 +11,22 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head==NULL|| head->next==NULL)return head;
-        ListNode* head2=head->next;
-        if(head->next->next!=NULL){
-        head2 = reverseList(head->next);
-        }
-        head->next->next = head;
-        head->next=NULL;
-        return head2;
+    // Base case: if the list is empty or has only one element, it's already reversed
+    if (head == nullptr || head->next == nullptr) {
+        return head;
     }
+
+    // Recursive call: reverse the rest of the list
+    ListNode* newHead = reverseList(head->next);
+
+    // Connect the current node's next node's next to the current node
+    // This effectively places the current node at the end of the reversed portion
+    head->next->next = head;
+
+    // Since the current node is now the last node, its next should point to nullptr
+    head->next = nullptr;
+
+    // Return the new head of the reversed list
+    return newHead;
+}
 };
