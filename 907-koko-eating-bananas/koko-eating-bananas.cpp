@@ -5,7 +5,7 @@ public:
         int low = 1,  high= piles.back();
         int mid=low + (high-low)/2;
         while(low<high){
-            std::cout<<getTime(piles, mid)<<low<<" "<<high<<mid<<"\n";
+            
             if (getTime(piles, mid)>h){
                 low=mid+1;
             }
