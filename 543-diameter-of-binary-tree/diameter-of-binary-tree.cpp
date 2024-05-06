@@ -12,9 +12,20 @@
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        if(root==NULL)return 0;
-        int diameter= maxDepth(root->left)+maxDepth(root->right);
-        return std::max({diameter, diameterOfBinaryTree(root->left), diameterOfBinaryTree(root->right) });
+        int max=0;
+        maxDiameter(root, max);
+        return max ;
+        // if(root==NULL)return 0;
+        // int diameter= maxDepth(root->left)+maxDepth(root->right);
+        // return std::max({diameter, diameterOfBinaryTree(root->left), diameterOfBinaryTree(root->right) });
+    }
+
+    int maxDiameter(TreeNode *root, int &diameter){
+        if(root==nullptr)return 0;
+        int leftDiam= maxDiameter(root->left,diameter);
+        int rightDiam= maxDiameter(root->right,diameter);
+        diameter= max(leftDiam+rightDiam, diameter);
+        return 1+ max(leftDiam, rightDiam); 
     }
 
      int maxDepth(TreeNode* root) {
