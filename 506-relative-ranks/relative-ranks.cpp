@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<string> findRelativeRanks(vector<int>& score) {
-        vector<string> answer;
+        vector<string> answer(score.size(),"");
         vector<Athlete> list;
         int i=0;
         while(i<score.size()){
@@ -11,19 +11,19 @@ public:
         sort(list.begin(), list.end(), compareScore);
         i=0;
         while(i<3 && i< score.size()){
-            if(i==0)list[i].rank="Gold Medal";
-            else if(i==1)list[i].rank="Silver Medal";
-            else list[i].rank="Bronze Medal";
+            if(i==0)answer[list[i].index]="Gold Medal";
+            else if(i==1)answer[list[i].index]="Silver Medal";
+            else answer[list[i].index]="Bronze Medal";
             i++;
         }
         while(i<score.size()){
-            list[i].rank=to_string(i+1);
+            answer[list[i].index]=to_string(i+1);
             i++;
         }
-        sort(list.begin(),list.end(), compareIndex);
-        for(i=0;i<list.size();i++){
-            answer.push_back(list[i].rank);
-        }
+        // sort(list.begin(),list.end(), compareIndex);
+        // for(i=0;i<list.size();i++){
+        //     answer.push_back(list[i].rank);
+        // }
         return answer;
     }
     struct Athlete{
