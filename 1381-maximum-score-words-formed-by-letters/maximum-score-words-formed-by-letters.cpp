@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int count[26];
+
     int maxScoreWords(vector<string>& words, vector<char>& letters,
                       vector<int>& score) {
         vector<int> lettersCount(26, 0);
