@@ -1,7 +1,6 @@
 class Solution {
 public:
 
-    vector<int> completion;
     double averageWaitingTime(vector<vector<int>>& customers) {
         
         double totalWaiting=0;
